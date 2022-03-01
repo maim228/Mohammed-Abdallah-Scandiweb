@@ -1,6 +1,6 @@
 # Scandiweb React Task
 
-* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and pure CSS(no Sass, Stled-Components, etc...)
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and pure CSS(no Sass, Styled-Components, etc...)
 * Only Class Components
 * No mobile view but website is responsive on different screens size (tested from 1280px * 720px to 2560px * 1900px) 
 
