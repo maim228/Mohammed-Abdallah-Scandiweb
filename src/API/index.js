@@ -1,3 +1,4 @@
+// To make it easy to change Server url 
 const api_url = process.env.REACT_APP_API_URL
 const headers = {
     'Content-Type': 'application/json'

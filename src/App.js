@@ -30,7 +30,8 @@ class App extends Component {
     defaultCurrency:{},
     activeCurrency:{},
     cart:[],
-    keys:[]
+    keys:[], 
+    isLoading:true,
   }
   
   //Fetch basic data we need to start
@@ -39,6 +40,7 @@ class App extends Component {
     .then(res=>{
       this.setState({categories:res})
       this.setState({defaultPath:res[0].name})
+      this.setState({isLoading:false})
     });
     API.currencies()
     .then(res=>{
@@ -108,7 +110,11 @@ class App extends Component {
   }
 
   render(){
-    const {categories, currencies, defaultPath, defaultCurrency, activeCurrency, cart, keys} = this.state;
+    const {categories, currencies, defaultPath, defaultCurrency, activeCurrency, cart, keys, isLoading} = this.state;
+    // if it failed to fetch data from server won't show any thing 
+    if(isLoading){
+      return null
+    }
     return (
       <div className="App">
         <Routes>
