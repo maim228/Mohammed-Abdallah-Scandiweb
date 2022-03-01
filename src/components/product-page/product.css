@@ -1,0 +1,70 @@
+.product{
+    padding: 24px 48px;
+    display: grid;
+    grid-template-columns: 10% 30% 40%;
+    grid-column-gap: 6.5%;
+    justify-content: center;
+}
+.gallery button{
+    border: 0;
+    outline: 0;
+    margin: 10px auto;
+    background: transparent;
+}
+.gallery button img{
+    width: 100px;
+    height: 100px;
+}
+.active img{
+    height: 450px;
+    width: 100%;
+}
+.product-info{
+    text-align: left;
+}
+.product-info h1{
+    font-weight: 300;
+}
+.brand{
+    font-weight: 400 !important;
+}
+.attribute-list{
+    list-style: none;
+    padding-inline-start: 0px;
+}
+.attribute-list li{
+    display: inline-block;
+}
+.text-attribute label{
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid black;
+}
+.switch-attribute label{
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+}
+.attribute-list input {
+    visibility:hidden;
+}
+.text-attribute input:checked + label {
+    background: black;
+    color: white;
+}
+.switch-attribute input:checked + label{
+    background-image: url('../header/images/checked.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 3px solid black;
+}
+.submit-form{
+    background-color: #5ece7b;
+    border: 0;
+    outline: 0;
+    color: white;
+    width: 40%;
+    padding: 12px 24px;
+    cursor: pointer;
+}

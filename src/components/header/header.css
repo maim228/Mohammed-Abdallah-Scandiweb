@@ -1,0 +1,30 @@
+.header{
+    height: 70px;
+    display: grid;
+    grid-template-columns: 30% 5% 30%;
+    grid-gap: 17.5%;
+    justify-content: left;
+    padding: 0 48px;
+}
+.nav-container{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+.nav-links,.active-nav{
+    display: inline-block;
+    text-transform: uppercase;
+    color: black;
+}
+.active-nav{
+    color: #5ece7b;
+    border-bottom: 2px solid green;
+}
+.nav-container, .logo-container, .cc-container{
+    margin-top: 20px;
+} 
+.cc-container{
+    display: grid;
+    grid-template-columns: 10% 10%;
+    grid-gap: 2%;
+    justify-content: right;
+}
