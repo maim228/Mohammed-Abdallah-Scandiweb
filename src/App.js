@@ -111,7 +111,7 @@ class App extends Component {
 
   render(){
     const {categories, currencies, defaultPath, defaultCurrency, activeCurrency, cart, keys, isLoading} = this.state;
-    // if it failed to fetch data from server won't show any thing 
+    // if it failed to fetch data from server won't return 'Warning: Maximum update in useNavigate'
     if(isLoading){
       return null
     }
