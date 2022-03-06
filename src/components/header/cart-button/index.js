@@ -16,6 +16,7 @@ class CartButton extends React.Component{
         cart = cart.filter((p)=>p.count >= 1)
         let sumLength = 0;
         let sumTotal = 0;
+        
         cart.map((p)=>sumLength=sumLength+p.count)
 
         const getTotal=()=>{
@@ -52,11 +53,18 @@ class CartButton extends React.Component{
                     {cart.length>0?<div className="cart-badge">{sumLength}</div>:''}
                 </button>
                 <div className="cart-content" style={{display:isOpen?'block':'none'}}>
-                    <h5 className="mini-cart-title">My Bag, <span>{cart.length} items</span></h5>
+                    <h5 className="mini-cart-title">
+                        My Bag,
+                        <span>{cart.length} items</span>
+                    </h5>
                     {cart.map((p)=>
                     <div key={p.unique}>
                         {/* Create product label and buttons for every button */}
-                        <Product product={p} increase={increase} descrease={descrease} currency={currency} />
+                        <Product 
+                        product={p} 
+                        increase={increase} 
+                        descrease={descrease} 
+                        currency={currency} />
                     </div>
                     )}
                     <div className="total-container">

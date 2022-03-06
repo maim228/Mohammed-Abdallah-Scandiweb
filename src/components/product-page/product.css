@@ -2,7 +2,7 @@
     padding: 24px 48px;
     display: grid;
     grid-template-columns: 10% 40% 40%;
-    grid-column-gap: 5%;
+    grid-column-gap: 1%;
     justify-content: center;
 }
 .gallery button{

@@ -20,7 +20,15 @@ class Products extends React.Component{
             <div className="products-container">
                 <h1 className="category-title">{category}</h1>
                 <div className="products-list">
-                    {this.state.products.map((p)=><ProductCard key={p.id} details={p} addToCart={this.props.addToCart} currency={this.props.currency} uniqueKeys={this.props.uniqueKeys} updateKey={this.props.updateKeys} />)}
+                    {this.state.products.map((p)=>
+                    <ProductCard 
+                    key={p.id} 
+                    details={p} 
+                    addToCart={this.props.addToCart} 
+                    currency={this.props.currency} 
+                    uniqueKeys={this.props.uniqueKeys} 
+                    updateKey={this.props.updateKeys} />
+                    )}
                 </div>
             </div>
         )

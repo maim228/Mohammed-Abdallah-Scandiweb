@@ -13,16 +13,33 @@ class Product extends React.Component{
                         <br /> {product.name} 
                         <br /> {dynamicPrice.currency.symbol}{dynamicPrice.amount}
                         <div className="item-mini-cart-count">
-                            <button onClick={()=>{descrease({id:product.unique})}}>-</button>
+                            <button onClick={()=>{descrease({id:product.unique})}}>
+                                -
+                            </button>
                             <div>{product.count}</div>
-                            <button onClick={()=>{increase({"id":product.id,"action":"add-more","unique":product.unique})}}>+</button>
+
+                            <button onClick={()=>{
+                            increase({
+                            "id":product.id,
+                            "action":"add-more",
+                            "unique":product.unique
+                            })
+                            }}>
+                                +
+                            </button>
                         </div>
                         </div>
-                        <div className="image-mini-cart"><img src={product.gallery[0]} alt={product.name} width='100px' height='100px' /></div>
-                        <button className="remove-btn" onClick={()=>{descrease({id:product.unique,action:'remove'})}}>X</button>
+                        <div className="image-mini-cart">
+                            <img src={product.gallery[0]} alt={product.name} width='100px' height='100px' />
+                        </div>
+                        <button className="remove-btn" onClick={()=>{
+                            descrease({id:product.unique,action:'remove'})
+                        }}>X</button>
                     </div>
                        {/* Show attributes in cart for every product */}  
-                    <Attributes attributes={product.attributes} selected={product.selectedAttrs} />
+                    <Attributes 
+                    attributes={product.attributes} 
+                    selected={product.selectedAttrs} />
                 </div>
         )
     }

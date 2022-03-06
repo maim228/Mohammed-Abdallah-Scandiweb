@@ -115,6 +115,7 @@ class App extends Component {
     this.setState({cart:[...this.state.keys,key]})
   }
 
+  //Show overlay for mini-cart
   updateOverlay = (value)=>{
     this.setState({overlay:value})
   }

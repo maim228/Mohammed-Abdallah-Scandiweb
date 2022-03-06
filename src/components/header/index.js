@@ -14,12 +14,17 @@ class Header extends React.Component{
                     {/* Create link for every category in our DB and specific which page user visit now*/}
                     {menuName.map((elm)=>{
                         return(
-                            <Link key={elm.name} to={`/${elm.name}`} className={activeMenu === elm.name? 'active-nav':'nav-links'}>
+                            <Link 
+                            key={elm.name} 
+                            to={`/${elm.name}`} 
+                            className={activeMenu === elm.name? 'active-nav':'nav-links'}>
                                 {elm.name}
                             </Link>
                         )})}
                     </div>
-                <div className='logo-container'><Logo width="25px" height="25px" /></div>
+                <div className='logo-container'>
+                    <Logo width="25px" height="25px" />
+                </div>
                 <div className='cc-container'>
 
                     {/* Currency switcher button */}

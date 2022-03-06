@@ -27,6 +27,7 @@ class Product extends React.Component{
         
     }
 
+    //use ContentRef & componentDidUpdate to stop using dangerouslysetinnerhtml 
     componentDidUpdate(prevProps, prevState, prevContext) {
         const el = this.contentRef.current;
         if(el){
@@ -55,6 +56,7 @@ class Product extends React.Component{
         const formInputs = Array.from(e.target.querySelectorAll("input[type=radio]:checked"));
         const attrs = formInputs.map((r)=>{return({"id":r.className,"value":r.value,"name":r.name})});
         const {id,name,prices,gallery,brand,attributes} = this.state.product;
+
         if(attributes.length > attrs.length){
             alert("You must choose all attributes for this product");
         }else{
@@ -78,21 +80,36 @@ class Product extends React.Component{
                         <img src={p} alt ='product' />
                     </button>)}
                 </div>
-                <div className="active"><img src={activeImg.length>0?activeImg:gallery[0]} alt='product' /></div>
+                <div className="active">
+                    <img src={activeImg.length>0?activeImg:gallery[0]} alt='product' />
+                </div>
                 <div className="product-info">
-                    <h1 className="brand">{brand}</h1>
-                    <h1>{name}</h1>
+                    <h1 className="brand">
+                        {brand}
+                    </h1>
+
+                    <h1>
+                        {name}
+                    </h1>
                     <form onSubmit={(e)=>{this.handleSubmit(e)}}>
                         {attributes.map((a)=>
                         <div key={a.id}>
                             <h3>{a.name}</h3>
-                            <AttributesForm items={a.items} id={a.id} name={a.name} type={a.type} />
+                            <AttributesForm 
+                            items={a.items} 
+                            id={a.id} 
+                            name={a.name} 
+                            type={a.type} />
                         </div>)}
-                        <h2>Price:
+                        <h2>
+                            Price:
                             <br />
                             {dynamicPrice.currency.symbol} {dynamicPrice.amount}
                         </h2>
-                        {inStock?<button type="submit" className="submit-form">ADD TO CART</button>:<div className="submit-form">OUT OF STOCK</div>}
+                        {inStock?
+                        <button type="submit" className="submit-form">ADD TO CART</button>
+                        :<div className="submit-form">OUT OF STOCK</div>
+                        }
                     </form>
                     <div ref={this.contentRef} className="description-container"></div>
                 </div>
