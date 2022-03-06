@@ -24,6 +24,9 @@
 .product-card:hover{
     box-shadow: 20px 20px 10px grey;
 }
+.product-card:hover .add-to-cart{
+    display: inline-block;
+}
 .layer{
     position: absolute;
     background-color: rgba(82, 80, 80, 0.527);
@@ -43,17 +46,19 @@
     height: 350px;
 }
 .add-to-cart{
+    display: none;
     background-color: green;
+    position: absolute;
     border-radius: 50%;
     padding: 10px;
-    margin-top: -50%;
     border: 0;
     outline: 0;
-    margin-right: -250px;
     cursor: pointer;
+    right: 10px;
+    top: -45px;
 }
-.details-section-in-stock{
-    margin-top: -40px;
+.details-section{
+    position: relative;
 }
 .details-section h3, .details-section h4{
     color: black;

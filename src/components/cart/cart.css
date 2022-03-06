@@ -42,7 +42,7 @@
 }
 .grid-container{
     display: grid;
-    grid-template-columns: 10% 30%;
+    grid-template-columns: 10% 30% 5%;
     grid-gap: 5%;
 }
 .item-cart-count button{

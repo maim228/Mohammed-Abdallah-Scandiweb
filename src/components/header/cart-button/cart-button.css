@@ -25,6 +25,7 @@
     z-index: 1;
     padding: 18px 8px;
     margin-top: 18px;
+    min-width: 160px;
   }
   
 .cart-content .item-mini-cart{
@@ -39,8 +40,8 @@
 }
 .item-mini-cart-grid{
     display: grid;
-    grid-template-columns: 50% 45%;
-    grid-gap: 5%;
+    grid-template-columns: 50% 40% 5%;
+    grid-gap: 2.5%;
 }
 .item-mini-cart-info{
     display: grid;
@@ -82,10 +83,7 @@
     color: white;
     background-color: #5ece7b;
 }
-/* show cart on hover */
-.cart-container:hover .cart-content{
-    display: block;
-}
+
 .mini-cart-title{
     text-align: left;
 }
@@ -109,6 +107,12 @@
     border-radius: 50%;
     border: 0;
 }
+.remove-btn{
+    background: none;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}
 /* add check mark inside selected swatch and small border around it */
 .selected-swatch{
     border: 2px solid black !important;
@@ -116,4 +120,9 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+}
+.total-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
 }

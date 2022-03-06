@@ -4,6 +4,12 @@ import {productInfo} from '../../API/index.js'
 import './product.css';
 
 class Product extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.contentRef = React.createRef();
+      }      
+
     state={
         product:{},
         activeImg:'',
@@ -18,8 +24,15 @@ class Product extends React.Component{
             this.setState({product:res.data.product})
             this.setState({isLoading:false})
         })
-
+        
     }
+
+    componentDidUpdate(prevProps, prevState, prevContext) {
+        const el = this.contentRef.current;
+        if(el){
+            el.innerHTML = this.state.product.description
+        }   
+      }
 
     //handle choose gallery photo
     changeImg = (img)=>{
@@ -53,9 +66,10 @@ class Product extends React.Component{
         if(this.state.isLoading || Object.keys(this.props.currency).length === 0){
             return null
         }
-        const {name,description,attributes,gallery,brand,prices,inStock} = this.state.product
+        const {name,attributes,gallery,brand,prices,inStock} = this.state.product
         const {activeImg} = this.state;
         const dynamicPrice = prices.filter((p)=>p.currency.label === this.props.currency.label)[0]
+
         return(
             <div className='product'>
                 <div className="gallery">
@@ -78,9 +92,9 @@ class Product extends React.Component{
                             <br />
                             {dynamicPrice.currency.symbol} {dynamicPrice.amount}
                         </h2>
-                        {inStock?<button type="submit" className="submit-form">ADD TO CART</button>:''}
+                        {inStock?<button type="submit" className="submit-form">ADD TO CART</button>:<div className="submit-form">OUT OF STOCK</div>}
                     </form>
-                    <div dangerouslySetInnerHTML={{ __html: description }}></div>
+                    <div ref={this.contentRef} className="description-container"></div>
                 </div>
             </div>
         )

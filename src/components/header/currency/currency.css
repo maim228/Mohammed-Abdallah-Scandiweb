@@ -32,7 +32,6 @@
     width: 100%;
     cursor: pointer;
 }
-
 /* highlight active currency */
 .active-currency{
   background-color: black !important;
@@ -42,7 +41,4 @@
     background-color: #ddd;
 }
 
-/* open currency menu on hover */
-.currency-container:hover .currency-content{
-    display: block;
-}
+

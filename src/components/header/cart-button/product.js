@@ -19,6 +19,7 @@ class Product extends React.Component{
                         </div>
                         </div>
                         <div className="image-mini-cart"><img src={product.gallery[0]} alt={product.name} width='100px' height='100px' /></div>
+                        <button className="remove-btn" onClick={()=>{descrease({id:product.unique,action:'remove'})}}>X</button>
                     </div>
                        {/* Show attributes in cart for every product */}  
                     <Attributes attributes={product.attributes} selected={product.selectedAttrs} />

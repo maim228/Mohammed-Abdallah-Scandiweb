@@ -52,7 +52,9 @@ class Product extends React.Component{
                                 <button className="prev-button" onClick={()=>{this.handleSwip("prev",product.gallery)}}><img src={next} alt='next' height='15px' width='15px' /></button>
                                 </>:''                           
                                 }                                
-                                </div>
+                            </div>
+                            <button className="remove-btn" onClick={()=>{descrease({id:product.unique,action:'remove'})}}>X</button>
+
                         </div>
                     </div>
                 </div>

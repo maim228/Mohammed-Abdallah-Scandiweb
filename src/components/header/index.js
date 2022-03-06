@@ -7,7 +7,7 @@ import CartButton from "./cart-button";
 
 class Header extends React.Component{
     render(){
-        const {menuName, activeMenu, currencies, currency, updateCurrency, cart, increaseProduct,descreaseProduct} = this.props;
+        const {menuName, activeMenu, currencies, currency, updateCurrency, cart, increaseProduct,descreaseProduct,updateOverlay} = this.props;
         return(
             <div className="header">
                 <div className='nav-container'>
@@ -34,6 +34,7 @@ class Header extends React.Component{
                     currency={currency}
                     increase={increaseProduct} 
                     descrease={descreaseProduct}
+                    updateOverlay={updateOverlay}
                     />
                 </div>
             </div>

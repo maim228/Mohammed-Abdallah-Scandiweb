@@ -20,6 +20,7 @@ class App extends Component {
     this.addToCart = this.addToCart.bind(this)
     this.removeFromCart = this.removeFromCart.bind(this)
     this.updateKeys = this.updateKeys.bind(this)
+    this.updateOverlay = this.updateOverlay.bind(this)
   }
 
   //Main states that control all the project
@@ -32,6 +33,7 @@ class App extends Component {
     cart:[],
     keys:[], 
     isLoading:true,
+    overlay:false
   }
   
   //Fetch basic data we need to start
@@ -101,6 +103,10 @@ class App extends Component {
   //function to check the product and pass it to descrease function
   removeFromCart(product){
     let checkProduct = this.state.cart.filter((p)=> p.unique === product.id)
+    if(product.action === 'remove'){
+      checkProduct[0].count=0;
+      this.setState({cart:[...this.state.cart]})
+    }
     this.descreaseCart(checkProduct)
   }
 
@@ -109,14 +115,19 @@ class App extends Component {
     this.setState({cart:[...this.state.keys,key]})
   }
 
+  updateOverlay = (value)=>{
+    this.setState({overlay:value})
+  }
+
   render(){
-    const {categories, currencies, defaultPath, defaultCurrency, activeCurrency, cart, keys, isLoading} = this.state;
-    // if it failed to fetch data from server won't show any thing 
+    const {categories, currencies, defaultPath, defaultCurrency, activeCurrency, cart, keys, isLoading,overlay} = this.state;
+    // if it failed to fetch data from server won't return 'Warning: Maximum update in useNavigate'
     if(isLoading){
       return null
     }
     return (
       <div className="App">
+        <div className='overlay' style={{display:overlay?'block':'none'}}></div>
         <Routes>
           {/* Redirect on load to first category */}
           <Route exact path="/" element={<Navigate to={defaultPath} />} />
@@ -133,6 +144,7 @@ class App extends Component {
               increaseProduct={this.addToCart} 
               descreaseProduct={this.removeFromCart}
               currency={Object.keys(activeCurrency).length === 0?defaultCurrency:activeCurrency} 
+              updateOverlay={this.updateOverlay}
               updateCurrency={this.updateCurrency} />
 
               <Products 
@@ -157,7 +169,9 @@ class App extends Component {
               increaseProduct={this.addToCart} 
               descreaseProduct={this.removeFromCart}
               currency={Object.keys(activeCurrency).length === 0?defaultCurrency:activeCurrency} 
+              updateOverlay={this.updateOverlay}
               updateCurrency={this.updateCurrency} />
+
               <Product 
               currency={Object.keys(activeCurrency).length === 0?defaultCurrency:activeCurrency} 
               addToCart={this.addToCart} 
@@ -177,7 +191,9 @@ class App extends Component {
               increaseProduct={this.addToCart} 
               descreaseProduct={this.removeFromCart}
               currency={Object.keys(activeCurrency).length === 0?defaultCurrency:activeCurrency} 
+              updateOverlay={this.updateOverlay}
               updateCurrency={this.updateCurrency} />
+
               <Cart 
               currency={Object.keys(activeCurrency).length === 0?defaultCurrency:activeCurrency} 
               increase={this.addToCart} 
