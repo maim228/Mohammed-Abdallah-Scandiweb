@@ -27,23 +27,23 @@
 .product-card:hover .add-to-cart{
     display: inline-block;
 }
+.img-product-container{
+    position: relative;
+}
 .layer{
     position: absolute;
     background-color: rgba(82, 80, 80, 0.527);
-    width: 326px;
-    height: 350px;
+    top: 0;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
 }
 .layer h1{
     color: gray;
 }
-.out-stock{
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-}
 .product-image{
     width: 100%;
-    height: 350px;
 }
 .add-to-cart{
     display: none;

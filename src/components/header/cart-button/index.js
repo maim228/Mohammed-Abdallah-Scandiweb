@@ -69,7 +69,7 @@ class CartButton extends React.Component{
                     )}
                     <div className="total-container">
                         <div>Total:</div>
-                        <div>{getTotal()} {currency.symbol}</div>
+                        <div>{getTotal().toFixed(2)} {currency.symbol}</div>
                     </div>
                     
                     <div className="cart-buttons">

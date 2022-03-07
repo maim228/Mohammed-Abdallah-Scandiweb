@@ -20,9 +20,6 @@
     margin: auto;
 }
 .image-cart{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     position: relative;
     display: flex;
     justify-content: center;
@@ -42,7 +39,7 @@
 }
 .grid-container{
     display: grid;
-    grid-template-columns: 10% 30% 5%;
+    grid-template-columns: 10% 40% 5%;
     grid-gap: 5%;
 }
 .item-cart-count button{

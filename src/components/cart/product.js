@@ -45,7 +45,8 @@ class Product extends React.Component{
                                 <div>{product.count}</div>
                                 <button onClick={()=>{increase({"id":product.id,"action":"add-more","unique":product.unique})}}>+</button>
                             </div>
-                            <div className="image-cart" style={{backgroundImage:`url(${product.gallery[galleryIndex -1]})`}}>
+                            <div className="image-cart">
+                                <img src={product.gallery[galleryIndex -1]} alt={product.name} />
                                 {product.gallery.length>1?
                                 <>
                                 <button className="next-button" onClick={()=>{this.handleSwip("next",product.gallery)}}><img src={previous} alt='previous' height='15px' width='15px' /></button>

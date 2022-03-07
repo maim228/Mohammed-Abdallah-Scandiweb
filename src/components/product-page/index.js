@@ -1,6 +1,7 @@
 import React from "react";
 import AttributesForm from './attributes-form'
 import {productInfo} from '../../API/index.js'
+import parseHtml from "../../API/parseHtml";
 import './product.css';
 
 class Product extends React.Component{
@@ -31,7 +32,8 @@ class Product extends React.Component{
     componentDidUpdate(prevProps, prevState, prevContext) {
         const el = this.contentRef.current;
         if(el){
-            el.innerHTML = this.state.product.description
+            const safeHTML = parseHtml(this.state.product.description, "text/html");
+            el.innerHTML=safeHTML;
         }   
       }
 
@@ -104,7 +106,7 @@ class Product extends React.Component{
                         <h2>
                             Price:
                             <br />
-                            {dynamicPrice.currency.symbol} {dynamicPrice.amount}
+                            {dynamicPrice.currency.symbol} {dynamicPrice.amount.toFixed(2)}
                         </h2>
                         {inStock?
                         <button type="submit" className="submit-form">ADD TO CART</button>

@@ -22,13 +22,14 @@ class ProductCard extends React.Component{
         const defaultAttributes= attributes.map((a)=>{return {"name":a.id,"type":a.type,"value":a.items[0].value}})
         return(
             <div className={`product-card ${inStock?true:"out-stock"}`}>
-                <div className="layer" style={{display:inStock?"none":"flex"}}>
-                    <h1>OUT OF STOCK</h1>
-                </div>
-
-                <Link to={`/product/${id}`}>
-                    <img src={gallery[0]} className="product-image" alt ={id} />
+                <div className='img-product-container'>
+                    <Link to={`/product/${id}`}>
+                        <img src={gallery[0]} className="product-image" alt ={id} />
+                        <div className="layer" style={{display:inStock?"none":"flex"}}>
+                        <h1>OUT OF STOCK</h1>
+                    </div>
                 </Link>
+                </div>
 
                 <div className={`details-section ${inStock?"details-section-in-stock":""}` }>
                     <button className="add-to-cart"
@@ -43,7 +44,7 @@ class ProductCard extends React.Component{
                     <Link to={`/product/${id}`}>
                         <h3>{name}</h3>
                     </Link>
-                    <h4>{activeCurrency.symbol}{dynamicPrice.amount}</h4>
+                    <h4>{activeCurrency.symbol}{dynamicPrice.amount.toFixed(2)}</h4>
                 </div>
             </div>
         )
