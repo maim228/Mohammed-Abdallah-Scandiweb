@@ -57,7 +57,7 @@ class CartButton extends React.Component{
                         My Bag,
                         <span>{cart.length} items</span>
                     </h5>
-                    {cart.map((p)=>
+                    {cart.slice(0,3).map((p)=>
                     <div key={p.unique}>
                         {/* Create product label and buttons for every button */}
                         <Product 
@@ -67,6 +67,8 @@ class CartButton extends React.Component{
                         currency={currency} />
                     </div>
                     )}
+
+                    {cart.length>3?<h3 style={{textAlign:'left'}}>Check all products in your <Link to='cart'>Bag</Link></h3>:false}
                     <div className="total-container">
                         <div>Total:</div>
                         <div>{getTotal().toFixed(2)} {currency.symbol}</div>

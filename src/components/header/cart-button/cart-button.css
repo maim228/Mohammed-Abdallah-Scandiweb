@@ -41,7 +41,7 @@
 }
 .item-mini-cart-grid{
     display: grid;
-    grid-template-columns: 50% 30% 5%;
+    grid-template-columns: 50% 20% 5%;
     grid-gap: 2.5%;
     justify-content: center;
 }
