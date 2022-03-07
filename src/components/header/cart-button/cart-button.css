@@ -41,16 +41,19 @@
 }
 .item-mini-cart-grid{
     display: grid;
-    grid-template-columns: 50% 40% 5%;
+    grid-template-columns: 50% 30% 5%;
     grid-gap: 2.5%;
+    justify-content: center;
 }
 .item-mini-cart-info{
     display: grid;
-    grid-template-columns: 45% 45%;
-    grid-gap: 10%; 
+    grid-template-columns: 45% 5%;
+    grid-gap: 50%; 
 }
 .item-mini-cart-count{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .item-mini-cart-count button{
     display: block;
