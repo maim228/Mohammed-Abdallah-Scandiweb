@@ -68,7 +68,7 @@ class CartButton extends React.Component{
                     </div>
                     )}
 
-                    {cart.length>3?<h3 style={{textAlign:'left'}}>Check all products in your <Link to='cart'>Bag</Link></h3>:false}
+                    {cart.length>3?<h3 style={{textAlign:'left'}}>Check all products in your <Link to='/cart'>Bag</Link></h3>:false}
                     <div className="total-container">
                         <div>Total:</div>
                         <div>{getTotal().toFixed(2)} {currency.symbol}</div>
